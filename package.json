@@ -1,0 +1,103 @@
+{
+  "name": "react-application",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhadijaMahanga/react-app.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Khadija Mahanga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KhadijaMahanga/react-app/issues"
+  },
+  "homepage": "https://github.com/KhadijaMahanga/react-app#readme",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.7",
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "^4.8.2",
+    "@material-ui/icons": "^4.5.1",
+    "@zeit/next-css": "^1.0.1",
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
+    "connect-mongo": "^3.2.0",
+    "date-fns": "^2.0.0-alpha.36",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.2",
+    "next": "^9.1.6",
+    "next-compose-plugins": "^2.2.0",
+    "next-fonts": "^1.0.3",
+    "next-images": "^1.3.0",
+    "next-redux-wrapper": "^4.0.1",
+    "next-routes": "^1.4.2",
+    "next-session": "^2.1.1",
+    "popper": "^1.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "reactstrap": "^8.4.0",
+    "resolve-url-loader": "^3.1.1",
+    "source-map-explorer": "^1.8.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build",
+    "test": "next test",
+    "lint": "yarn eslint --fix ./",
+    "lint-staged": "yarn eslint --fix"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.4",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.14.3",
+    "serve": "^10.1.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,scss,md}": [
+      "yarn lint",
+      "git add"
+    ]
+  }
+}
