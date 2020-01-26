@@ -2,35 +2,7 @@ import $ from 'jquery'
 import React, { Component } from 'react';
 import Link from 'next/link';
 import logo from '../assets/images/logos/logo.png';
-
-const MENUS = [
-	{
-		name: "Habari",
-		slug: "habari"
-
-	},
-	{
-		name: "Biashara",
-		slug: "biashara"
-	},
-	{
-		name: "Teknologia",
-		slug: "teknologia"
-	},
-	{
-		name: "Safari",
-		slug: "safari"
-	},
-	{
-		name: "Maoni na Uchambuzi",
-		slug: "maoni-na-uchambuzi"
-	},
-	{
-		name: "Ripoti Maalum",
-		slug: "ripoti-maalum"
-	}
-
-]
+import config from '../config';
 
 class Menu extends Component {
 	constructor(props){
@@ -71,7 +43,6 @@ class Menu extends Component {
 	}
 
 	render() {
-		const menus = MENUS;
 
   	return (
   		<div className="container">
@@ -91,7 +62,7 @@ class Menu extends Component {
 
 				<a className="menu-nav-icon" data-menu="#main-menu"><i className="ion-navicon"></i></a>
 				<ul className="main-menu" id="main-menu">
-					{menus.map(menu => (
+					{config.menus.map(menu => (
 						<li menu-item="menu-item" className="menu-item" key={menu.order}>
 							<Link href="/[section]" as={`/${menu.slug}`}><a>{menu.name}</a></Link>
 						</li>

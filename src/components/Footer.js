@@ -15,7 +15,7 @@ function Footer() {
 
 					<div className="col-sm-4">
 						<div className="mb-30">
-							<Link href="/"><img src={logo}  alt=""/></Link>
+							<Link href="/"><a><img src={logo} alt=""/></a></Link>
 							<p className="mtb-20 color-ccc">Nukta inakuletea habari mbalimbali zilizofanyiwa uchunguzi wa kina</p>
 							<p className="color-ash">Hakimiliki &copy;<script>document.write(new Date().getFullYear());</script> Nukta Africa </p>
 						</div>
@@ -42,9 +42,14 @@ function Footer() {
 			<div className="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
 
 				<ul className="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
-					<li><Link to="/terms" className="pl-0 pl-sm-10">Vigezo &amp; Masharti</Link></li>
-					<li><Link to="/privacy">Sera ya faragha</Link></li>
-					<li><Link to="/contact">Wasiliana nasi</Link></li>
+					<li><Link href="/terms">
+						<a className="pl-0 pl-sm-10">
+							Vigezo &amp; Masharti
+						</a></Link></li>
+					<li><Link href="/privacy">
+						<a>Sera ya faragha</a></Link></li>
+					<li><Link href="/contact">
+						<a>Wasiliana nasi</a></Link></li>
 				</ul>
 				<ul className="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
 					<li><a className="pl-0 pl-sm-10" href=""><i className="ion-social-facebook"></i></a></li>
