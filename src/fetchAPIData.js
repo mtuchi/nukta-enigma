@@ -10,6 +10,16 @@ export async function getHomeData(page=1) {
     return data;
 }
 
+export async function getSectionNews(category, perPage=12, page=1) {
+    const res = await fetch(
+      `${url}/wp-json/wp/v2/posts?per_page=${perPage}&page=${page}&categories=${category}`
+    );
+    const data = await res.json();
+
+    return data;
+}
+
+
 export async function getPopularPosts() {
     const res = await fetch(
       `${url}/wp-json/wordpress-popular-posts/v1/popular-posts?range=last30days`
