@@ -52,7 +52,7 @@ function Footer() {
         <div className="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
           <ul className="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
             <li>
-              <Link href="/terms">
+              <Link href="/privacy">
                 <a className="pl-0 pl-sm-10">Vigezo &amp; Masharti</a>
               </Link>
             </li>
