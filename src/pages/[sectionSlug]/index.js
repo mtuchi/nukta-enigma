@@ -64,8 +64,6 @@ SectionPage.getInitialProps = async props => {
     query: { sectionSlug }
   } = props;
 
-  console.log(props.query);
-
   const section = config.menus.find(sec => sec.slug === sectionSlug);
   const stories = section ? await getSectionNews(section.id) : [];
   const popularPosts = await getPopularPosts();
