@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 function Error({ children, title, ...props }) {
   return (
     /* eslint-disable-next-line react/jsx-props-no-spreading */
     <div {...props}>
-      <p>
-        {title}
-      </p>
+      <p>{title}</p>
       <div>{children}</div>
     </div>
   );

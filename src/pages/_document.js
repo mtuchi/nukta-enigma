@@ -16,21 +16,9 @@ class MyDocument extends Document {
             sizes="180x180"
             href="/apple-touch-icon.png"
           />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon.ico"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon.ico"
-          />
-          <meta
-            name="msapplication-TileColor"
-          />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
+          <meta name="msapplication-TileColor" />
 
           <link
             rel="preload"

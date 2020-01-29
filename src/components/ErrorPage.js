@@ -4,13 +4,10 @@ import PropTypes from 'prop-types';
 
 import Page from './Page';
 
-
 function ErrorPage({ children, ...props }) {
   return (
     <Page {...props}>
-      <div {...props}>
-        {children}
-      </div>
+      <div {...props}>{children}</div>
     </Page>
   );
 }

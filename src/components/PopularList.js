@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import Cardlow from './Cardlow.js';
 import Title from './Title';
 
-function PopularList({ popularPosts}) {
-  if (popularPosts && popularPosts.length ) {
+function PopularList({ popularPosts }) {
+  if (popularPosts && popularPosts.length) {
     return (
       <>
-        <Title name="ZILIZOSOMWA ZAIDI"/>
-        {popularPosts.slice(0,10).map((post, index) => (
-          <Cardlow key={`popular-${index}`} cardClass="oflow-hidden pos-relative mb-20 dplay-block" cardInfo={post}/>
+        <Title name="ZILIZOSOMWA ZAIDI" />
+        {popularPosts.slice(0, 10).map((post, index) => (
+          <Cardlow
+            key={`popular-${index}`}
+            cardClass="oflow-hidden pos-relative mb-20 dplay-block"
+            cardInfo={post}
+          />
         ))}
       </>
     );
@@ -18,9 +22,7 @@ function PopularList({ popularPosts}) {
 }
 
 PopularList.propTypes = {
-	popularPosts: PropTypes.arrayOf(
-    PropTypes.shape({})
-  ).isRequired
-}
+  popularPosts: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+};
 
 export default PopularList;

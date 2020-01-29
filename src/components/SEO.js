@@ -6,7 +6,7 @@ import Head from 'next/head';
 import defaultImage from '../assets/images/logos/logo.png';
 
 function SEO({ title }) {
-  const pageTitle = title ? `${title} | Nukta Habari` : "Nukta Habari";
+  const pageTitle = title ? `${title} | Nukta Habari` : 'Nukta Habari';
   const imageUrl = `https://nukta.co.tz${defaultImage}`;
   const structuredDataOrganization = `{
 		"@context": "http://schema.org",
@@ -35,15 +35,15 @@ function SEO({ title }) {
   return (
     <Head>
       {/* The description that appears under the title of your website appears on search engines results */}
-      <meta name="description" content="Nukta hukuletea habari motomoto, makala zilizochambuliwa kwa ufanisi. Wao wanaripoti, sisi tunakuchambulia yanayokuhusu" />
+      <meta
+        name="description"
+        content="Nukta hukuletea habari motomoto, makala zilizochambuliwa kwa ufanisi. Wao wanaripoti, sisi tunakuchambulia yanayokuhusu"
+      />
 
       <meta name="image" content={imageUrl} />
 
       {/* OpenGraph (Facebook & LinkedIn) */}
-      <meta
-        property="og:url"
-        content="https://nukta.co.tz"
-      />
+      <meta property="og:url" content="https://nukta.co.tz" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={pageTitle} />
       <meta
@@ -54,10 +54,7 @@ function SEO({ title }) {
 
       {/* Twitter Card (Twitter & Slack?) */}
       <meta name="twitter:card" content="summary" />
-      <meta
-        name="twitter:site"
-        content="@NuktaTanzania"
-      />
+      <meta name="twitter:site" content="@NuktaTanzania" />
       <meta name="twitter:title" content={pageTitle} />
       <meta
         name="twitter:description"

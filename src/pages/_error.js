@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Error from '../components/Error';
 import ErrorPage from '../components/ErrorPage';
 
-
 function NotFoundError({ statusCode }) {
   return (
     <ErrorPage
@@ -15,9 +14,7 @@ function NotFoundError({ statusCode }) {
       {statusCode === 404 && (
         <>
           <Error title="404 - Page Not Found">
-            <p>
-              The page you are looking for does not exist.
-            </p>
+            <p>The page you are looking for does not exist.</p>
           </Error>
         </>
       )}
@@ -28,9 +25,9 @@ function NotFoundError({ statusCode }) {
             We’re having some trouble processing your request. We’ve logged the
             error and will investigate. You can try again or if the issue
             persists, please{' '}
-              <Link href="/contact" underline="always">
-                contact us
-              </Link>
+            <Link href="/contact" underline="always">
+              contact us
+            </Link>
           </p>
         </Error>
       )}
