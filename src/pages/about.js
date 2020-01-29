@@ -4,6 +4,8 @@ import Title from '../components/Title.js';
 import Subscribe from '../components/Subscribe.js';
 import PopularList from '../components/PopularList';
 
+import { getPopularPosts } from '../fetchAPIData';
+
 function About ({ popularPosts}) {
 	return (
 		<Page title={'About Us'}>

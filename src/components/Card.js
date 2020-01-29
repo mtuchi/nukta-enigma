@@ -44,7 +44,7 @@ function Card ({ cardClass, cardInfo }) {
 				<div className="rw75 bg-layer" style={{backgroundImage: 'url('+coverUrl+')'}}></div>
 			)}
 			<h4 className="pt-20">
-				<Link href={`/${categorySlug}/${url}`}><a><b>{title}</b></a>
+				<Link  href="/[sectionSlug]/[articleSlug]" as={`/${categorySlug}/${url}`}><a><b>{title}</b></a>
 				</Link></h4>
 			<ul className="list-li-mr-20 pt-10 mb-30">
 				<li className="color-lite-black">

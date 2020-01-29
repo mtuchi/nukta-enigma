@@ -33,7 +33,7 @@ function Cardlow ({ cardClass, cardInfo }) {
 	const videoUrl = cardInfo.acf.videourl || null;
 	return (
 		<>
-			<Link href={`/${categorySlug}/${url}`}>
+			<Link href="/[sectionSlug]/[articleSlug]" as={`/${categorySlug}/${url}`}>
 				<a className={cardClass+' pos-relative mb-5'}>
 					{videoUrl && videoUrl.length > 0 ? (
 						<iframe

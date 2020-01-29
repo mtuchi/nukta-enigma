@@ -35,7 +35,7 @@ function Cardshow  ({ cardClass, cardInfo }) {
 
 	return (
 		<div className={cardClass}>
-			<Link href={`/${categorySlug}/${url}`}>
+			<Link href="/[sectionSlug]/[articleSlug]" as={`/${categorySlug}/${url}`}>
 				<a className="pos-relative h-100 dplay-block text-left" >
 						{videoUrl && videoUrl.length > 0 ? (
 							<iframe

@@ -60,7 +60,9 @@ SectionPage.propTypes = {
 SectionPage.getInitialProps = async props => {
   const {
     query: { sectionSlug }
-  } = props;
+	} = props;
+	
+	console.log(props.query)
 
   const section = config.menus.find(sec => sec.slug === sectionSlug );
   const stories = section? await getSectionNews(section.id): [];

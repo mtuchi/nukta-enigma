@@ -10,10 +10,15 @@ import Link from 'next/link';
 
 import 'moment/locale/sw';
 import Moment from 'react-moment';
+import Error from '../../_error';
 
 import { getArticle, getPopularPosts, getRelatedArticles } from '../../../fetchAPIData';
 
 function ArticlePage({ popularPosts, article, relatedarticles, section }) {
+
+	if (!article) {
+		return <Error statusCode={404} />;
+	}
     const articleDate = new Date(article.date);
     const videoUrl = [];
     
@@ -26,7 +31,7 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
 
 
     return (
-        <Page title={article && article.title.rendered || 'Habari'}>
+        <Page title={article.title.rendered || 'Habari'} >
           	<>
 					<div className="brdr-ash-1 opacty-5" />
 					<div className="section pv-50 text-left">
@@ -104,9 +109,11 @@ ArticlePage.getInitialProps = async props => {
     query: { articleSlug, sectionSlug }
   } = props;
 
+  console.log(props)
+
   const section = config.menus.find(sec => sec.slug === sectionSlug );
   const article =  await getArticle(articleSlug);
-  const relatedarticles = await getRelatedArticles(article.id);
+  const relatedarticles = article ? await getRelatedArticles(article.id): [];
   const popularPosts = await getPopularPosts();
 
   return {
