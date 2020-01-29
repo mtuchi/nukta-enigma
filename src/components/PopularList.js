@@ -8,7 +8,7 @@ function PopularList({ popularPosts}) {
     return (
       <>
         <Title name="ZILIZOSOMWA ZAIDI"/>
-        {popularPosts.map((post, index) => (
+        {popularPosts.slice(0,10).map((post, index) => (
           <Cardlow key={`popular-${index}`} cardClass="oflow-hidden pos-relative mb-20 dplay-block" cardInfo={post}/>
         ))}
       </>

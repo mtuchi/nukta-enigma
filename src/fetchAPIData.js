@@ -28,3 +28,21 @@ export async function getPopularPosts() {
 
     return data;
 }
+
+export async function getArticle(slug) {
+  const res = await fetch(
+    `${url}/wp-json/wp/v2/posts?slug=${slug}&_embed`
+  );
+  const data = await res.json();
+
+  return data[0];
+}
+
+export async function getRelatedArticles(id) {
+  const res = await fetch(
+    `${url}/wp-json/related-posts-by-taxonomy/v1/posts/${id}?posts_per_page=6&fields=ids`
+  );
+  const data = await res.json();
+
+  return data.posts;
+}

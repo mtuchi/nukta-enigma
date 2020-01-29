@@ -64,7 +64,7 @@ class Menu extends Component {
 				<ul className="main-menu" id="main-menu">
 					{config.menus.map(menu => (
 						<li menu-item="menu-item" className="menu-item" key={menu.order}>
-							<Link href="/[section]" as={`/${menu.slug}`}><a>{menu.name}</a></Link>
+							<Link href="/[sectionSlug]" as={`/${menu.slug}`}><a>{menu.name}</a></Link>
 						</li>
 					))}
 					<li menu-item="menu-item" className="menu-item">
