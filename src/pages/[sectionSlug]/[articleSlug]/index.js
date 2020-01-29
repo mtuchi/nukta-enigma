@@ -55,11 +55,8 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
 										<li>by{' '}<span className="color-primary">{author}</span>&nbsp;
 										<Moment locale="sw" format="D MMM, YYYY" withTitle>{articleDate}</Moment></li>
 									</ul>
-									<div className="article-summary">
-									{ article.excerpt.rendered && <div dangerouslySetInnerHTML={{__html:article.excerpt.rendered.replace('<br />\n', '</p><p>')}} /> }
-								    </div>
 									<hr/>
-									<div className="article-contents" dangerouslySetInnerHTML={{__html: article.content.rendered }} />
+									<div className="article-contents" dangerouslySetInnerHTML={{__html: article.content.rendered.replace(/style=".*"/g, '').replace(/<h1>/g, '').replace(/<\/h1>/g, '') }} />
 									<div className="float-left-right text-center mt-40 mt-sm-20">
 											<ul className="mb-30 list-li-mt-10 list-li-mr-5 list-a-plr-15 list-a-ptb-7 list-a-bg-grey list-a-br-2 list-a-hvr-primary ">
 												<li><Link href="/[sectionSlug]" as={`/${categorySlug}`}>{categoryName}</Link></li>
@@ -108,8 +105,6 @@ ArticlePage.getInitialProps = async props => {
   const {
     query: { articleSlug, sectionSlug }
   } = props;
-
-  console.log(props)
 
   const section = config.menus.find(sec => sec.slug === sectionSlug );
   const article =  await getArticle(articleSlug);

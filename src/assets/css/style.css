@@ -188,13 +188,13 @@ header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
 	100%{ opacity: 1; }
 }
 
-.article-summary p {
+.article-contents ul > li {
 	line-height: 2;
 	font-size: 0.875rem;
 	margin-left: 1.5rem;
 }
 
-.article-summary p::before {
+.article-contents ul > li > span::before {
 		content: "";
     height: 0.3rem;
     left: 1rem;
