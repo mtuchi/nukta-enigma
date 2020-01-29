@@ -61,7 +61,8 @@
   "scripts": {
     "dev": "next",
     "start": "next start",
-    "build": "next build && next export",
+    "build": "next build",
+    "export": "next export",
     "test": "next test",
     "lint": "yarn eslint --fix ./",
     "lint-staged": "yarn eslint --fix"
