@@ -20,7 +20,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Lora:400,700|Muli:400,700"
           />
 
-          <link rel="manifest" href="manifest.json" />
+          <link rel="manifest" href="/manifest.json" />
           <style type="text/css">
             {`html {
               font-size: 14px;
