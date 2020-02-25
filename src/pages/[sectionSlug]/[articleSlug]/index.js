@@ -78,6 +78,9 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
                       .replace(/style=".*"/g, '')
                       .replace(/<h1>/g, '')
                       .replace(/<\/h1>/g, '')
+                      .replace(/<li>/g, '<li><span>' )
+                      .replace(/<\/li>/g, '</span></li>')
+                      .replace(/<\/ul>/, '</ul> <hr />')
                   }}
                 />
                 <div className="float-left-right text-center mt-40 mt-sm-20">
