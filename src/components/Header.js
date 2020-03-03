@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="bg-191">
       <div className="container">
-        <div className="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
+        <div className="oflow-hidden color-ash font-12 text-sm-center ptb-sm-5">
           <ul className="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
             <li>
               <Link href="/about">

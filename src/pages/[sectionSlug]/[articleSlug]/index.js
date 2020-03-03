@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Link from 'next/link';
@@ -22,6 +22,10 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
   if (!article) {
     return <Error statusCode={404} />;
   }
+
+  useEffect(()=> {
+    
+  }, []);
   const articleDate = new Date(article.date);
   const videoUrl = [];
 
@@ -31,6 +35,10 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
   const image = article.full_image_src || article.jetpack_featured_media_url;
 
   const author = article._embedded.author[0].name;
+
+  let articleContent = article.content.rendered;
+  let content = articleContent.split('</p>');
+  articleContent = content.slice(0,4).join('</p>') + "<div id='relatedArticles' />" + content.slice(4, -1).join('</p>');
 
   return (
     <Page title={article.title.rendered || 'Habari'}>
@@ -74,13 +82,15 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
                 <div
                   className="article-contents"
                   dangerouslySetInnerHTML={{
-                    __html: article.content.rendered
+                    __html: articleContent
                       .replace(/style=".*"/g, '')
                       .replace(/<h1>/g, '')
                       .replace(/<\/h1>/g, '')
                       .replace(/<li>/g, '<li><span>')
                       .replace(/<\/li>/g, '</span></li>')
-                      .replace(/<\/ul>/, '</ul> <hr />')
+                      .replace(/<hr>/g, '')
+                      .replace(/<hr \/>/g, '')
+                      .replace(/<\/ul>/, '</ul><hr />')
                   }}
                 />
                 <div className="float-left-right text-center mt-40 mt-sm-20">
@@ -122,10 +132,10 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
               </div>
               <div className="col-md-6 col-lg-4">
                 <div className="pl-20 pl-md-0">
+                  <Subscribe />
                   <div className="mb-50">
                     <PopularList popularPosts={popularPosts} />
                   </div>
-                  <Subscribe />
                 </div>
               </div>
             </div>
@@ -150,6 +160,34 @@ ArticlePage.getInitialProps = async props => {
 
   const section = config.menus.find(sec => sec.slug === sectionSlug);
   const article = await getArticle(articleSlug);
+  let inlineRelatedArticles = [];
+  if (article && article.acf) {
+    const {
+      acf: {
+        related_article_1: relatedArticleOne,
+        related_article_2: relatedArticleTwo
+      }
+    } = article;
+
+    if(relatedArticleOne) {
+      const { post_title: title, post_name: slug, thumbnail_image_src: thumbnail, categories_list: category } = await getArticle(relatedArticleOne.post_name);
+      let relatedSection = 'habari';
+      if (category.length > 0) {
+        relatedSection = category[0].slug;
+      }
+      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection  });
+    }
+
+    if(relatedArticleTwo) {
+      const { post_title: title, post_name: slug, thumbnail_image_src: thumbnail, categories_list: category } = await getArticle(relatedArticleTwo.post_name);
+      let relatedSection = 'habari';
+      if (category.length > 0) {
+        relatedSection = category[0].slug;
+      }
+      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection  });
+    }
+
+  }
   const relatedarticles = article ? await getRelatedArticles(article.id) : [];
   const popularPosts = await getPopularPosts();
 
@@ -157,6 +195,7 @@ ArticlePage.getInitialProps = async props => {
     article,
     popularPosts,
     relatedarticles,
+    inlineRelatedArticles,
     section
   };
 };

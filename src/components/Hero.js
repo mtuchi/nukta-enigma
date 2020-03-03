@@ -8,7 +8,7 @@ function Hero({ slides }) {
       <div className="h-600x h-sm-auto">
         <div className="h-2-3 h-sm-auto oflow-hidden">
           <Cardshow
-            cardClass="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x"
+            cardClass="pb-5 pr-5 pr-sm-0 float-left float-sm-none w-2-3 w-sm-100 h-100 h-sm-300x font-14"
             cardInfo={slides[0]}
           />
           <div className="float-left float-sm-none w-1-3 w-sm-100 h-100 h-sm-600x">
