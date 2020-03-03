@@ -51,10 +51,10 @@ function Home({ popularPosts, stories, videos }) {
             </div>
             <div className="col-md-6 col-lg-4">
               <div className="pl-20 pl-md-0">
+                <Subscribe />
                 <div className="mb-50">
                   <PopularList popularPosts={popularPosts} />
                 </div>
-                <Subscribe />
               </div>
             </div>
           </div>

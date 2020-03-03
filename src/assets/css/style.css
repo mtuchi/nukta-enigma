@@ -30,11 +30,11 @@
 /* ---------------------------------
 1. PRIMARY STYLES
 --------------------------------- */
-@font-face { font-family: "Encode Sans Expanded";src: url("encodesansexpanded.woff2") format('woff2'); font-weight: normal; font-style: normal; }
+
 html{ font-size: 100%; overflow-x: hidden; width: 100%; margin: 0px;  padding: 0px; touch-action: manipulation; }
 
 
-body{ font-size: 14px; font-family: 'Encode Sans Expanded', sans-serif; width: 100%; height: 100%; margin: 0; font-weight: 400;
+body{ font-size: 14px; font-family: 'Merriweather'; width: 100%; height: 100%; margin: 0; font-weight: 400;
 	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-wrap: break-word;
 	overflow-x: hidden; color: #333; }
 
@@ -42,9 +42,9 @@ h1, h2, h3, h4, h5, h6, p, a, ul, span, li, img, inpot, button{ margin: 0; paddi
 
 h1,h2,h3,h4,h5,h6{ line-height: 1.5; font-weight: inherit; }
 
-h1,h2,h3{ font-family: 'Encode Sans Expanded', sans-serif; }
+h1,h2,h3{ font-family: 'Merriweather'; }
 
-p{ line-height: 2.3; font-size: 1.05em; font-weight: 400; color: #555; }
+p{ line-height: 2.3; font-size: 16px; font-weight: 400; color: #555555; padding-bottom: 10px }
 
 h1{ font-size: 4em; line-height: 1; }
 h2{ font-size: 2em; line-height: 1.1; }
@@ -84,6 +84,10 @@ textarea:focus{ outline-color: #4285f4; }
 ::-ms-input-placeholder { color: #ccc; }
 
 .menu-item{text-transform: uppercase;}
+
+.big-font {
+	font-size: 18px;
+}
 
 
 /* RESPONSIVE */
