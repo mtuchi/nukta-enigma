@@ -10,19 +10,19 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
 
+          <link
+            href="//fonts.googleapis.com/css?family=Merriweather"
+            rel="preload"
+            as="style"
+          />
 
-          <link href="//fonts.googleapis.com/css?family=Merriweather"
-            rel="preload" as="style" />
-
-          <link href="http://fonts.googleapis.com/css?family=Merriweather"
-            rel="stylesheet" type="text/css"  />
+          <link
+            href="http://fonts.googleapis.com/css?family=Merriweather"
+            rel="stylesheet"
+            type="text/css"
+          />
 
           <link rel="manifest" href="/manifest.json" />
-          <style type="text/css">
-            {`html {
-              font-size: 14px;
-            }`}
-          </style>
         </Head>
         <body>
           <Main />
