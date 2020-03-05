@@ -23,9 +23,7 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
     return <Error statusCode={404} />;
   }
 
-  useEffect(()=> {
-    
-  }, []);
+  useEffect(() => {}, []);
   const articleDate = new Date(article.date);
   const videoUrl = [];
 
@@ -37,8 +35,12 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
   const author = article._embedded.author[0].name;
 
   let articleContent = article.content.rendered;
-  let content = articleContent.split('</p>');
-  articleContent = content.slice(0,4).join('</p>') + "<div id='relatedArticles' />" + content.slice(4, -1).join('</p>');
+  const content = articleContent.split('</p>');
+  articleContent = `${content
+    .slice(0, 4)
+    .join('</p>')}<div id='relatedArticles' />${content
+    .slice(4, -1)
+    .join('</p>')}`;
 
   return (
     <Page title={article.title.rendered || 'Habari'}>
@@ -160,7 +162,7 @@ ArticlePage.getInitialProps = async props => {
 
   const section = config.menus.find(sec => sec.slug === sectionSlug);
   const article = await getArticle(articleSlug);
-  let inlineRelatedArticles = [];
+  const inlineRelatedArticles = [];
   if (article && article.acf) {
     const {
       acf: {
@@ -169,24 +171,33 @@ ArticlePage.getInitialProps = async props => {
       }
     } = article;
 
-    if(relatedArticleOne) {
-      const { post_title: title, post_name: slug, thumbnail_image_src: thumbnail, categories_list: category } = await getArticle(relatedArticleOne.post_name);
+    if (relatedArticleOne) {
+      const {
+        post_title: title,
+        post_name: slug,
+        thumbnail_image_src: thumbnail,
+        categories_list: category
+      } = await getArticle(relatedArticleOne.post_name);
       let relatedSection = 'habari';
       if (category.length > 0) {
         relatedSection = category[0].slug;
       }
-      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection  });
+      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection });
     }
 
-    if(relatedArticleTwo) {
-      const { post_title: title, post_name: slug, thumbnail_image_src: thumbnail, categories_list: category } = await getArticle(relatedArticleTwo.post_name);
+    if (relatedArticleTwo) {
+      const {
+        post_title: title,
+        post_name: slug,
+        thumbnail_image_src: thumbnail,
+        categories_list: category
+      } = await getArticle(relatedArticleTwo.post_name);
       let relatedSection = 'habari';
       if (category.length > 0) {
         relatedSection = category[0].slug;
       }
-      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection  });
+      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection });
     }
-
   }
   const relatedarticles = article ? await getRelatedArticles(article.id) : [];
   const popularPosts = await getPopularPosts();
