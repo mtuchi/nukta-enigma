@@ -44,7 +44,7 @@ h1,h2,h3,h4,h5,h6{ line-height: 1.5; font-weight: inherit; }
 
 h1,h2,h3{ font-family: 'Open Sans'; }
 
-p{ line-height: 2.3; font-size: 16px; font-weight: 400; color: #555555; padding-bottom: 10px }
+p{ line-height: 2.3; font-size: 1.1m; font-weight: 400; color: #555555; padding-bottom: 10px }
 
 h1{ font-size: 4em; line-height: 1; }
 h2{ font-size: 2em; line-height: 1.1; }
@@ -194,7 +194,7 @@ header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
 
 .article-contents ul > li {
 	line-height: 2;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	margin-left: 1.5rem;
 }
 
