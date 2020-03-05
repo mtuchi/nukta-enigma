@@ -85,8 +85,8 @@ textarea:focus{ outline-color: #4285f4; }
 
 .menu-item{text-transform: uppercase;}
 
-.big-font {
-	font-size: 18px;
+.bold {
+	font-weight: 600px;
 }
 
 
@@ -230,7 +230,6 @@ header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
 
 
 	/* MAIN MENU */
-
 	header .main-menu{ display: none; position: absolute; top: 60px; left: 0; right: 0; float: none;
 		opacity: 0; z-index: 1; height: auto; text-align: left; background: #fff; }
 
@@ -440,6 +439,8 @@ header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
 
 .brdr-ash-1{ height: 1px; background: #aaa; }
 
+
+.brdr-white-1{ height: 1px; background: #fff; margin-bottom: 10px; }
 
 
 /* LINK STYLING	 */
@@ -732,6 +733,9 @@ header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
 
 .list-a-hvr-primary > li > a:hover{ background: #4285f4; color: #fff; }
 
+.footer > li {
+	display: block;
+}
 
 /* MARGIN/PADDING */
 

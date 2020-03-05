@@ -28,7 +28,8 @@ function SEO({ title }) {
 		"sameAs": [
 			"https://web.facebook.com/NuktaTanzania/",
 			"https://twitter.com/NuktaTanzania",
-			"https://medium.com/@NuktaAfrica"
+      "https://medium.com/@NuktaAfrica",
+      "https://www.instagram.com/nuktatz"
 		]
     }`;
 
