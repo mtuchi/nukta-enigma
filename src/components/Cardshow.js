@@ -5,7 +5,7 @@ import config from '../config';
 import 'moment/locale/sw';
 import Moment from 'react-moment';
 
-function Cardshow({ cardClass, cardInfo }) {
+function Cardshow({ cardClass, cardInfo, titleClassName }) {
   const url = cardInfo.slug;
   const title = cardInfo.title.rendered;
 
@@ -56,8 +56,8 @@ function Cardshow({ cardClass, cardInfo }) {
               style={{ backgroundImage: `url(${coverUrl})` }}
             ></div>
           )}
-          <div className="bg-clr-black abs-blr color-white p-10 bg-sm-color-7 font-10">
-            <h4 className="mb-0 font-11">
+          <div className="bg-clr-black abs-blr color-white p-10 bg-sm-color-7">
+            <h4 className={`mb-0 ${titleClassName}`}>
               <b>{title}</b>
             </h4>
             <ul className="list-li-mr-20">
@@ -75,7 +75,8 @@ function Cardshow({ cardClass, cardInfo }) {
 
 Cardshow.propTypes = {
   cardInfo: PropTypes.object.isRequired,
-  cardClass: PropTypes.string.isRequired
+  cardClass: PropTypes.string.isRequired,
+  titleClassName: PropTypes.string.isRequired
 };
 
 export default Cardshow;
