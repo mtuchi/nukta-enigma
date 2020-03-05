@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import React, { Component } from 'react';
+import Page from '../components/Page';
+import Title from '../components/Title.js';
 
 class Contact extends Component {
   constructor(props) {
@@ -44,15 +46,13 @@ class Contact extends Component {
 
   render() {
     return (
-      <div>
+      <Page title="Contact Us">
         <div className="brdr-ash-1 opacty-5"></div>
         <section className="pv-50">
           <div className="container text-left">
             <div className="row">
               <div className="col-sm-12 col-md-8">
-                <h3>
-                  <b>TUTUMIE UJUMBE</b>
-                </h3>
+                <Title name="TUTUMIE UJUMBE" />
                 <p className="mb-30 mr-100 mr-sm-0">
                   Tunapenda kusikia kutoka kwako. Tafadhali, wasiliana nasi kwa
                   kupata maelekezo, taarifa, kutangaza biashara na mengine.
@@ -105,9 +105,9 @@ class Contact extends Component {
                     <div className="col-sm-12">
                       <div className="pos-relative pr-80">
                         <p className="color-ash">Ujumbe*</p>
-                        <h4>
+                        <h5>
                           <b>Tujuze kuhusu suala lako</b>
-                        </h4>
+                        </h5>
                         <textarea className="mb-0 message"></textarea>
                         <button
                           className="abs-br font-20 plr-15 btn-fill-primary"
@@ -122,9 +122,7 @@ class Contact extends Component {
                 </form>
               </div>
               <div className="col-sm-12 col-md-4">
-                <h3 className="mb-20 mt-sm-50">
-                  <b>TAARIFA</b>
-                </h3>
+                <Title name="TAARIFA" />
                 <ul className="font-11 list-relative list-li-pl-30 list-block list-li-mb-15">
                   <li>
                     <i className="abs-tl ion-ios-location"></i>7th Floor,
@@ -173,7 +171,7 @@ class Contact extends Component {
             </div>
           </div>
         </section>
-      </div>
+      </Page>
     );
   }
 }

@@ -12,8 +12,8 @@ const config = {
       id: 3
     },
     {
-      name: 'Teknologia',
-      slug: 'teknologia'
+      name: 'Teknolojia',
+      slug: 'teknolojia'
     },
     {
       name: 'Maoni na Uchambuzi',
