@@ -36,7 +36,7 @@ function Footer() {
 
             <div className="col-sm-4">
               <h4 className="bold">Fahamu Zaidi</h4>
-              <div class="brdr-white-1 opacty-2"></div>
+              <div className="brdr-white-1 opacty-2"></div>
               <ul className="footer list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
                 <li>
                   <Link href="/privacy">
@@ -59,32 +59,41 @@ function Footer() {
                   <Link href="https://web.facebook.com/NuktaTanzania/">
                     <a>
                       <i className="ion-social-facebook"></i>
-                    </a></Link>
+                    </a>
+                  </Link>
                 </li>
                 <li className="font-13">
                   <Link href="https://twitter.com/NuktaTanzania">
-                  <a><i className="ion-social-twitter"></i></a>
+                    <a>
+                      <i className="ion-social-twitter"></i>
+                    </a>
                   </Link>
                 </li>
-                <li className="font-13"> 
-                  <Link href="https://medium.com/@NuktaAfrica"><a>
-                    <i className="ion-social-linkedin"></i></a>
-                    </Link>
+                <li className="font-13">
+                  <Link href="https://medium.com/@NuktaAfrica">
+                    <a>
+                      <i className="ion-social-linkedin"></i>
+                    </a>
+                  </Link>
                 </li>
                 <li className="font-13">
-                  <Link href="https://www.instagram.com/nuktatz/"><a>
-                    <i className="ion-social-instagram"></i>
-                  </a></Link>
+                  <Link href="https://www.instagram.com/nuktatz/">
+                    <a>
+                      <i className="ion-social-instagram"></i>
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
 
             <div className="col-sm-4 ">
               <h4 className="bold">Mawasiliano</h4>
-              <div class="brdr-white-1 opacty-2"></div>
+              <div className="brdr-white-1 opacty-2"></div>
               <p className="color-white">S. L. P. 71719</p>
               <p className="color-white">Dar es salaam, Tanzania</p>
-              <p className="color-white">Simu: (+255) 716 731 383, (+255) 712 212 638</p>
+              <p className="color-white">
+                Simu: (+255) 716 731 383, (+255) 712 212 638
+              </p>
               <p className="color-white">maoni@nukta.co.tz</p>
             </div>
           </div>
