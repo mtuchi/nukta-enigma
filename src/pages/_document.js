@@ -11,13 +11,13 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
 
           <link
-            href="//fonts.googleapis.com/css?family=Open+Sans"
+            href="//fonts.googleapis.com/css?family=Arial"
             rel="preload"
             as="style"
           />
 
           <link
-            href="http://fonts.googleapis.com/css?family=Open+Sans"
+            href="http://fonts.googleapis.com/css?family=Arial"
             rel="stylesheet"
             type="text/css"
           />
