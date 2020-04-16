@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Link from 'next/link';
+import Moment from 'react-moment';
 import Cardlow from '../../../components/Cardlow';
 import Page from '../../../components/Page';
 import RelatedContent from '../../../components/RelatedContent';
@@ -11,7 +12,6 @@ import Subscribe from '../../../components/Subscribe';
 import config from '../../../config';
 
 import 'moment/locale/sw';
-import Moment from 'react-moment';
 import Error from '../../_error';
 
 import {
@@ -20,41 +20,53 @@ import {
   getRelatedArticles
 } from '../../../fetchAPIData';
 
-function ArticlePage({ popularPosts, article, relatedarticles, section, inlineRelatedArticles }) {
+function ArticlePage({
+  popularPosts,
+  article,
+  relatedarticles,
+  section,
+  inlineRelatedArticles
+}) {
   const [blocks, setBlocks] = useState();
   if (!article) {
     return <Error statusCode={404} />;
   }
 
   useEffect(() => {
-    {Array.from(
-      document.querySelectorAll("div[id='relatedArticles']")
-    ).map(el => {
-      setBlocks(ReactDOM.createPortal(
-        <>
-          <hr />
-          <p><strong>Zinazohusiana</strong></p>
-          <div className="row">
-            <div className="col-sm-6">
-                <Cardlow
-                  key={inlineRelatedArticles[0].id}
-                  cardClass="oflow-hidden pos-relative mb-20 dplay-block"
-                  cardInfo={inlineRelatedArticles[0]}
-                />
-            </div>
-            <div className="col-sm-6">
-                <Cardlow
-                  key={inlineRelatedArticles[1].id}
-                  cardClass="oflow-hidden pos-relative mb-20 dplay-block"
-                  cardInfo={inlineRelatedArticles[1]}
-                />
-            </div>
-          </div>
-          <hr />
-        </>,
-        el
-      ))
-    })}
+    {
+      Array.from(document.querySelectorAll("div[id='relatedArticles']")).map(
+        el => {
+          setBlocks(
+            ReactDOM.createPortal(
+              <>
+                <hr />
+                <p>
+                  <strong>Zinazohusiana</strong>
+                </p>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <Cardlow
+                      key={inlineRelatedArticles[0].id}
+                      cardClass="oflow-hidden pos-relative mb-20 dplay-block"
+                      cardInfo={inlineRelatedArticles[0]}
+                    />
+                  </div>
+                  { inlineRelatedArticles.length > 1 && <div className="col-sm-6">
+                    <Cardlow
+                      key={inlineRelatedArticles[1].id}
+                      cardClass="oflow-hidden pos-relative mb-20 dplay-block"
+                      cardInfo={inlineRelatedArticles[1]}
+                    />
+                  </div>}
+                </div>
+                <hr />
+              </>,
+              el
+            )
+          );
+        }
+      );
+    }
   }, []);
   const articleDate = new Date(article.date);
   const videoUrl = [];
@@ -68,14 +80,16 @@ function ArticlePage({ popularPosts, article, relatedarticles, section, inlineRe
 
   let articleContent = article.content.rendered;
   const content = articleContent.split('</p>');
-  articleContent = content.length > 5 ? `${content
-    .slice(0, 5)
-    .join('</p>')}<div id='relatedArticles'></div>${content
-    .slice(5, -1)
-    .join('</p>')}` :
-    `${content.join('</p>')}<div id='relatedArticles'></div>`
-    
-    ;
+  if (inlineRelatedArticles.length > 0) {
+    articleContent =
+      content.length > 5
+        ? `${content
+            .slice(0, 5)
+            .join('</p>')}<div id='relatedArticles'></div>${content
+            .slice(5, -1)
+            .join('</p>')}`
+        : `${content.join('</p>')}<div id='relatedArticles'></div>`;
+  }
 
   return (
     <Page title={article.title.rendered || 'Habari'}>
@@ -189,9 +203,7 @@ ArticlePage.propTypes = {
   popularPosts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   relatedarticles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   section: PropTypes.shape({}).isRequired,
-  inlineRelatedArticles: PropTypes.arrayOf(
-    PropTypes.shape({})
-  )
+  inlineRelatedArticles: PropTypes.arrayOf(PropTypes.shape({}))
 };
 
 ArticlePage.getInitialProps = async props => {
@@ -211,8 +223,8 @@ ArticlePage.getInitialProps = async props => {
     } = article;
 
     if (relatedArticleOne) {
-        const artOne = await getArticle(relatedArticleOne.post_name);
-        inlineRelatedArticles.push(artOne);
+      const artOne = await getArticle(relatedArticleOne.post_name);
+      inlineRelatedArticles.push(artOne);
     }
 
     if (relatedArticleTwo) {
