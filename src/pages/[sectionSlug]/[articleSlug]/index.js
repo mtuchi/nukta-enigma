@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Link from 'next/link';
+import Cardlow from '../../../components/Cardlow';
 import Page from '../../../components/Page';
 import RelatedContent from '../../../components/RelatedContent';
 import PopularList from '../../../components/PopularList';
@@ -18,12 +20,42 @@ import {
   getRelatedArticles
 } from '../../../fetchAPIData';
 
-function ArticlePage({ popularPosts, article, relatedarticles, section }) {
+function ArticlePage({ popularPosts, article, relatedarticles, section, inlineRelatedArticles }) {
+  const [blocks, setBlocks] = useState();
   if (!article) {
     return <Error statusCode={404} />;
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    {Array.from(
+      document.querySelectorAll("div[id='relatedArticles']")
+    ).map(el => {
+      setBlocks(ReactDOM.createPortal(
+        <>
+          <hr />
+          <p><strong>Zinazohusiana</strong></p>
+          <div className="row">
+            <div className="col-sm-6">
+                <Cardlow
+                  key={inlineRelatedArticles[0].id}
+                  cardClass="oflow-hidden pos-relative mb-20 dplay-block"
+                  cardInfo={inlineRelatedArticles[0]}
+                />
+            </div>
+            <div className="col-sm-6">
+                <Cardlow
+                  key={inlineRelatedArticles[1].id}
+                  cardClass="oflow-hidden pos-relative mb-20 dplay-block"
+                  cardInfo={inlineRelatedArticles[1]}
+                />
+            </div>
+          </div>
+          <hr />
+        </>,
+        el
+      ))
+    })}
+  }, []);
   const articleDate = new Date(article.date);
   const videoUrl = [];
 
@@ -36,11 +68,14 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
 
   let articleContent = article.content.rendered;
   const content = articleContent.split('</p>');
-  articleContent = `${content
-    .slice(0, 4)
-    .join('</p>')}<div id='relatedArticles' />${content
-    .slice(4, -1)
-    .join('</p>')}`;
+  articleContent = content.length > 5 ? `${content
+    .slice(0, 5)
+    .join('</p>')}<div id='relatedArticles'></div>${content
+    .slice(5, -1)
+    .join('</p>')}` :
+    `${content.join('</p>')}<div id='relatedArticles'></div>`
+    
+    ;
 
   return (
     <Page title={article.title.rendered || 'Habari'}>
@@ -95,6 +130,7 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
                       .replace(/<\/ul>/, '</ul><hr />')
                   }}
                 />
+                {blocks}
                 <div className="float-left-right text-center mt-40 mt-sm-20">
                   <ul className="mb-30 list-li-mt-10 list-li-mr-5 list-a-plr-15 list-a-ptb-7 list-a-bg-grey list-a-br-2 list-a-hvr-primary ">
                     <li>
@@ -128,7 +164,7 @@ function ArticlePage({ popularPosts, article, relatedarticles, section }) {
                   </ul>
                 </div>
                 <div className="brdr-ash-1 opacty-5"></div>
-                {relatedarticles.length > 0 && (
+                {relatedarticles && relatedarticles.length > 0 && (
                   <RelatedContent postIds={relatedarticles} />
                 )}
               </div>
@@ -152,7 +188,10 @@ ArticlePage.propTypes = {
   article: PropTypes.shape({}).isRequired,
   popularPosts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   relatedarticles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  section: PropTypes.shape({}).isRequired
+  section: PropTypes.shape({}).isRequired,
+  inlineRelatedArticles: PropTypes.arrayOf(
+    PropTypes.shape({})
+  )
 };
 
 ArticlePage.getInitialProps = async props => {
@@ -172,31 +211,13 @@ ArticlePage.getInitialProps = async props => {
     } = article;
 
     if (relatedArticleOne) {
-      const {
-        post_title: title,
-        post_name: slug,
-        thumbnail_image_src: thumbnail,
-        categories_list: category
-      } = await getArticle(relatedArticleOne.post_name);
-      let relatedSection = 'habari';
-      if (category.length > 0) {
-        relatedSection = category[0].slug;
-      }
-      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection });
+        const artOne = await getArticle(relatedArticleOne.post_name);
+        inlineRelatedArticles.push(artOne);
     }
 
     if (relatedArticleTwo) {
-      const {
-        post_title: title,
-        post_name: slug,
-        thumbnail_image_src: thumbnail,
-        categories_list: category
-      } = await getArticle(relatedArticleTwo.post_name);
-      let relatedSection = 'habari';
-      if (category.length > 0) {
-        relatedSection = category[0].slug;
-      }
-      inlineRelatedArticles.push({ title, slug, thumbnail, relatedSection });
+      const artTwo = await getArticle(relatedArticleTwo.post_name);
+      inlineRelatedArticles.push(artTwo);
     }
   }
   const relatedarticles = article ? await getRelatedArticles(article.id) : [];
