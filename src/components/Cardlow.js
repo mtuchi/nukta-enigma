@@ -50,10 +50,9 @@ function Cardlow({ cardClass, cardInfo }) {
               style={{ width: '100%', height: '100%', border: '0' }}
             />
           ) : (
-            <div
-              className="wh-100x abs-tlr bg-map bg-grad-layer-6"
-              style={{ backgroundImage: `url(${coverUrl})` }}
-            ></div>
+            <img
+              className="lazyload wh-100x abs-tlr bg-map bg-grad-layer-6" data-src={coverUrl}
+            />
           )}
           <div className="ml-120 min-h-100x">
             <h5>
@@ -69,10 +68,5 @@ function Cardlow({ cardClass, cardInfo }) {
     </>
   );
 }
-
-Cardlow.propTypes = {
-  cardInfo: PropTypes.object.isRequired,
-  cardClass: PropTypes.string.isRequired
-};
 
 export default Cardlow;
