@@ -45,7 +45,7 @@ class Menu extends Component {
       <div className="container">
         <Link href="/">
           <a className="logo">
-            <img src={logo} alt="Logo" />
+            <img className="lazyload" data-src={logo} alt="Logo" />
           </a>
         </Link>
 

@@ -28,12 +28,9 @@ function ArticlePage({
   inlineRelatedArticles
 }) {
   const [blocks, setBlocks] = useState();
-  if (!article) {
-    return <Error statusCode={404} />;
-  }
 
   useEffect(() => {
-    {
+    if (inlineRelatedArticles.length > 0) {
       Array.from(document.querySelectorAll("div[id='relatedArticles']")).map(
         el => {
           setBlocks(
@@ -68,6 +65,11 @@ function ArticlePage({
       );
     }
   }, []);
+
+  if (!article) {
+    return <Error statusCode={404} />;
+  }
+
   const articleDate = new Date(article.date);
   const videoUrl = [];
 
@@ -113,10 +115,10 @@ function ArticlePage({
                     }}
                   />
                 ) : (
-                  <div
-                    className="rw60 bg-layer"
-                    style={{ backgroundImage: `url('${image}')` }}
-                  ></div>
+                  <img
+                    className="lazyload bg-layer"
+                    data-src={image}
+                  />
                 )}
                 <h3 className="mt-30">
                   <b>{article.title.rendered}</b>
@@ -224,12 +226,16 @@ ArticlePage.getInitialProps = async props => {
 
     if (relatedArticleOne) {
       const artOne = await getArticle(relatedArticleOne.post_name);
-      inlineRelatedArticles.push(artOne);
+      if (artOne) {
+        inlineRelatedArticles.push(relatedArticleOne);
+      }
     }
 
     if (relatedArticleTwo) {
       const artTwo = await getArticle(relatedArticleTwo.post_name);
-      inlineRelatedArticles.push(artTwo);
+      if (artTwo) {
+        inlineRelatedArticles.push(artTwo);
+      }
     }
   }
   const relatedarticles = article ? await getRelatedArticles(article.id) : [];

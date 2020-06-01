@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import config from '../config';
-import PropTypes from 'prop-types';
 import 'moment/locale/sw';
 import Moment from 'react-moment';
 
@@ -53,10 +52,10 @@ function Card({ cardClass, cardInfo }) {
           }}
         />
       ) : (
-        <div
-          className="rw75 bg-layer"
-          style={{ backgroundImage: `url(${coverUrl})` }}
-        ></div>
+        <img
+          className="lazyload bg-layer"
+          data-src={coverUrl}
+        />
       )}
       <h4 className="pt-20">
         <Link
@@ -77,10 +76,5 @@ function Card({ cardClass, cardInfo }) {
     </div>
   );
 }
-
-Card.propTypes = {
-  cardInfo: PropTypes.object.isRequired,
-  cardClass: PropTypes.string.isRequired
-};
 
 export default Card;

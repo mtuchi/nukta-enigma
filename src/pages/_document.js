@@ -7,22 +7,6 @@ class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
-
-          <link
-            href="//fonts.googleapis.com/css?family=Arial"
-            rel="preload"
-            as="style"
-          />
-
-          <link
-            href="http://fonts.googleapis.com/css?family=Arial"
-            rel="stylesheet"
-            type="text/css"
-          />
-
-          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />

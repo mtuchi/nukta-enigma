@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import React, { Component } from 'react';
 import Page from '../components/Page';
-import Title from '../components/Title.js';
+import Title from '../components/Title';
 
 class Contact extends Component {
   constructor(props) {

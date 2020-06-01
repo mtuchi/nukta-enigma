@@ -51,10 +51,10 @@ function Cardshow({ cardClass, cardInfo, titleClassName }) {
               style={{ width: '100%', height: '100%', border: '0' }}
             />
           ) : (
-            <div
-              className="img-bg bg-1 bg-grad-layer-6"
-              style={{ backgroundImage: `url(${coverUrl})` }}
-            ></div>
+            <img
+              className="lazyload img-bg bg-1 bg-grad-layer-6"
+              data-src={coverUrl}
+            />
           )}
           <div className="bg-clr-black abs-blr color-white p-10 bg-sm-color-7">
             <h4 className={`mb-0 ${titleClassName}`}>
@@ -72,11 +72,5 @@ function Cardshow({ cardClass, cardInfo, titleClassName }) {
     </div>
   );
 }
-
-Cardshow.propTypes = {
-  cardInfo: PropTypes.object.isRequired,
-  cardClass: PropTypes.string.isRequired,
-  titleClassName: PropTypes.string.isRequired
-};
 
 export default Cardshow;

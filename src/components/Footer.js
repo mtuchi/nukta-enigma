@@ -17,7 +17,7 @@ function Footer() {
               <div className="mb-30">
                 <Link href="/">
                   <a>
-                    <img src={logo} alt="" />
+                    <img className="lazyload" data-src={logo} alt="" />
                   </a>
                 </Link>
                 <p className="mtb-20 color-white">
