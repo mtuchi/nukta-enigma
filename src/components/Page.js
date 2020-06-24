@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
-import Menu from './Menu';
+import Navigation from './Navigation';
 import Footer from './Footer';
 import SEO from './SEO';
 
@@ -12,7 +12,7 @@ function Page({ title, children }) {
       <SEO title={title} />
       <header>
         <Header />
-        <Menu />
+        <Navigation />
       </header>
       {children}
       <Footer />

@@ -4,7 +4,10 @@ import Link from 'next/link';
 import logo from '../assets/images/logos/logo.png';
 import config from '../config';
 
-class Menu extends Component {
+import { Menu, MenuItem, Button, ButtonBase } from '@material-ui/core';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+
+class Navigation extends Component {
   constructor(props) {
     super(props);
 
@@ -63,9 +66,34 @@ class Menu extends Component {
           </form>
         </div>
 
-        <a className="menu-nav-icon" data-menu="#main-menu">
-          <i className="ion-navicon"></i>
-        </a>
+        <PopupState variant="popover" popupId="demo-popup-menu">
+          {popupState => (
+            <React.Fragment>
+              <ButtonBase
+                className="menu-nav-icon"
+                data-menu="#main-menu"
+                {...bindTrigger(popupState)}
+              >
+                <i className="ion-navicon"></i>
+              </ButtonBase>
+              <Menu {...bindMenu(popupState)}>
+                {config.menus.map(menu => (
+                  <Link href="/[sectionSlug]" as={`/${menu.slug}`}>
+                    <MenuItem component="a" onClick={popupState.close}>
+                      {menu.name}
+                    </MenuItem>
+                  </Link>
+                ))}
+                <Link href="/data" as="/data">
+                  <MenuItem component="a" onClick={popupState.close}>
+                    Data
+                  </MenuItem>
+                </Link>
+              </Menu>
+            </React.Fragment>
+          )}
+        </PopupState>
+
         <ul className="main-menu" id="main-menu">
           {config.menus.map(menu => (
             <li menu-item="menu-item" className="menu-item" key={menu.order}>
@@ -86,4 +114,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default Navigation;
