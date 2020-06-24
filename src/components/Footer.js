@@ -21,8 +21,7 @@ function Footer() {
                   </a>
                 </Link>
                 <p className="mtb-20 color-white">
-                  Nukta inakuletea habari mbalimbali zilizofanyiwa uchunguzi wa
-                  kina
+                  Nukta huchapisha kila siku habari na makala zenye uchambuzi wa kina kuhusu biashara, teknolojia, elimu, takwimu, maendeleo, utalii na uchumi ili kukuhabarisha  na kukusaidia ufanye maamuzi sahihi.
                 </p>
                 <p className="color-white">
                   Hakimiliki &copy;
@@ -92,9 +91,10 @@ function Footer() {
               <p className="color-white">S. L. P. 71719</p>
               <p className="color-white">Dar es salaam, Tanzania</p>
               <p className="color-white">
-                Simu: (+255) 716 731 383, (+255) 712 212 638
+                Simu: +255 677 088 088
               </p>
-              <p className="color-white">maoni@nukta.co.tz</p>
+              <p className="color-white">News: newsroom@nukta.co.tz</p>
+              <p className="color-white">Advertising: sales@nukta.co.tz</p>
             </div>
           </div>
         </div>
