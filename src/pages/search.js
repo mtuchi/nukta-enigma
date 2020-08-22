@@ -55,9 +55,8 @@ Search.getInitialProps = async ({ query: { search } }) => {
 
   return {
     popularPosts,
-    stories,
-    videos
+    stories
   };
 };
 
-export default Home;
+export default Search;
