@@ -2,6 +2,13 @@ import fetch from 'isomorphic-unfetch';
 
 const url = 'https://cms.nukta.co.tz';
 
+export async function getSearchResults(search) {
+  const res = await fetch(`${url}/wp-json/wp/v2/posts?search=${encodeURIComponent(search)}`);
+  const data = await res.json();
+
+  return data;
+}
+
 export async function getHomeData(page = 1) {
   const res = await fetch(
     `${url}/wp-json/wp/v2/posts?per_page=22&page=${page}`
