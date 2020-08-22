@@ -18,12 +18,12 @@ function Data({ popularPosts }) {
               <ul className="nav nav-tabs list-a-pr-30">
                 <li className="active">
                   <a data-toggle="tab" href="#home">
-                    Weather
+                    Hali ya Hewa
                   </a>
                 </li>
                 <li>
                   <a data-toggle="tab" href="#menu1">
-                    Dar-es-salaam Sock Exchange
+                    Soko la Hisa Dar es Salaam
                   </a>
                 </li>
                 <li>
