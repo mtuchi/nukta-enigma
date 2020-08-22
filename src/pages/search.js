@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import 'moment/locale/sw';
+
 import Page from '../components/Page';
+import MoreNews from '../components/MoreNews';
 import PopularList from '../components/PopularList';
 import Subscribe from '../components/Subscribe';
 import Title from '../components/Title';
@@ -18,7 +21,7 @@ function Search({ popularPosts, stories }) {
             <div className="col-md-12 col-lg-8">
               {stories && stories.length > 0 ? (
                 <MoreNews
-                  titleName={section.name}
+                  titleName="Search"
                   cardDiv="row category-news"
                   cardClass="col-sm-6"
                   newsList={stories}
@@ -49,8 +52,8 @@ Search.propTypes = {
   popularPosts: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
-Search.getInitialProps = async ({ query: { search } }) => {
-  const stories = await getSearchResults(search);
+Search.getInitialProps = async ({ query: { q } }) => {
+  const stories = await getSearchResults(q);
   const popularPosts = await getPopularPosts();
 
   return {
