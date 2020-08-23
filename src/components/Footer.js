@@ -21,14 +21,17 @@ function Footer() {
                   </a>
                 </Link>
                 <p className="mtb-20 color-white">
-                  Nukta huchapisha kila siku habari na makala zenye uchambuzi wa kina kuhusu biashara, teknolojia, elimu, takwimu, maendeleo, utalii na uchumi ili kukuhabarisha  na kukusaidia ufanye maamuzi sahihi.
+                  Nukta huchapisha kila siku habari na makala zenye uchambuzi wa
+                  kina kuhusu biashara, teknolojia, elimu, takwimu, maendeleo,
+                  utalii na uchumi ili kukuhabarisha na kukusaidia ufanye
+                  maamuzi sahihi.
                 </p>
                 <p className="color-white">
                   Hakimiliki &copy;
                   <script>
                     document.write(new Date().getFullYear());
                   </script>{' '}
-                  Nukta Africa{' '}
+                  Nukta Africa 2020{' '}
                 </p>
               </div>
             </div>
@@ -90,11 +93,9 @@ function Footer() {
               <div className="brdr-white-1 opacty-2"></div>
               <p className="color-white">S. L. P. 71719</p>
               <p className="color-white">Dar es salaam, Tanzania</p>
-              <p className="color-white">
-                Simu: +255 677 088 088
-              </p>
-              <p className="color-white">News: newsroom@nukta.co.tz</p>
-              <p className="color-white">Advertising: sales@nukta.co.tz</p>
+              <p className="color-white">Habari: newsroom@nukta.co.tz</p>
+              <p className="color-white">Matangazo: sales@nukta.co.tz</p>
+              <p className="color-white">Simu: +255 677 088 088</p>
             </div>
           </div>
         </div>
