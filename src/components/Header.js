@@ -20,22 +20,20 @@ function Header() {
           </ul>
           <ul className="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
             <li>
-              <a className="pl-0 pl-sm-10" href="">
+              <a
+                className="pl-0 pl-sm-10"
+                href="https://web.facebook.com/NuktaTanzania/"
+              >
                 <i className="ion-social-facebook"></i>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://twitter.com/NuktaTanzania">
                 <i className="ion-social-twitter"></i>
               </a>
             </li>
             <li>
-              <a href="">
-                <i className="ion-social-google"></i>
-              </a>
-            </li>
-            <li>
-              <a href="">
+              <a href="ttps://www.instagram.com/nuktatz/">
                 <i className="ion-social-instagram"></i>
               </a>
             </li>

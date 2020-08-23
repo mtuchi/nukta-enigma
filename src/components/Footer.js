@@ -71,13 +71,13 @@ function Footer() {
                     </a>
                   </Link>
                 </li>
-                <li className="font-13">
+                {/* <li className="font-13">
                   <Link href="https://medium.com/@NuktaAfrica">
                     <a>
                       <i className="ion-social-linkedin"></i>
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="font-13">
                   <Link href="https://www.instagram.com/nuktatz/">
                     <a>
