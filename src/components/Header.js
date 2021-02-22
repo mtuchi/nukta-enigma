@@ -19,16 +19,16 @@ function Header() {
             </li>
           </ul>
           <ul className="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
-            <li>
+            {/* <li>
               <a
                 className="pl-0 pl-sm-10"
-                href="https://web.facebook.com/NuktaTanzania/"
+                href="//web.facebook.com/NuktaTanzania/"
               >
                 <i className="ion-social-facebook"></i>
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/NuktaTanzania">
+              <a href="//twitter.com/NuktaTanzania">
                 <i className="ion-social-twitter"></i>
               </a>
             </li>
@@ -36,6 +36,20 @@ function Header() {
               <a href="ttps://www.instagram.com/nuktatz/">
                 <i className="ion-social-instagram"></i>
               </a>
+            </li> */}
+            <li className="font-13">
+              <Link href="//web.facebook.com/NuktaTanzania/">
+                <a>
+                  <i className="ion-social-facebook"></i>
+                </a>
+              </Link>
+            </li>
+            <li className="font-13">
+              <Link href="//twitter.com/NuktaTanzania">
+                <a>
+                  <i className="ion-social-twitter"></i>
+                </a>
+              </Link>
             </li>
           </ul>
         </div>

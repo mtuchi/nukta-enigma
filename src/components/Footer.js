@@ -57,29 +57,29 @@ function Footer() {
                 </li>
               </ul>
               <ul className="list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
-                <li className="font-13">
-                  <Link href="https://web.facebook.com/NuktaTanzania/">
+                {/* <li className="font-13">
+                  <Link href="//web.facebook.com/NuktaTanzania/">
                     <a>
                       <i className="ion-social-facebook"></i>
                     </a>
                   </Link>
                 </li>
                 <li className="font-13">
-                  <Link href="https://twitter.com/NuktaTanzania">
+                  <Link href="//twitter.com/NuktaTanzania">
                     <a>
                       <i className="ion-social-twitter"></i>
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 {/* <li className="font-13">
-                  <Link href="https://medium.com/@NuktaAfrica">
+                  <Link href="//medium.com/@NuktaAfrica">
                     <a>
                       <i className="ion-social-linkedin"></i>
                     </a>
                   </Link>
                 </li> */}
                 <li className="font-13">
-                  <Link href="https://www.instagram.com/nuktatz/">
+                  <Link href="//www.instagram.com/nuktatz/">
                     <a>
                       <i className="ion-social-instagram"></i>
                     </a>
